@@ -16,11 +16,11 @@ const PORT = process.env.PORT || 8000;
 
 app.use(
   cors({
-    origin: ["https://anpadd.vercel.app"], // Allow your frontend origin(s)
-    credentials: true, // If you’re using cookies/auth headers
+    origin: ["https://anpadd.vercel.app"], // ✅ frontend domain
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
   })
 );
-
 // Middlewares
 app.use(express.json());
 app.use(cookieParser());
@@ -45,4 +45,5 @@ db()
   .catch((err) => {
     console.error("❌ Database connection failed:", err);
   });
+
 
